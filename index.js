@@ -1,7 +1,7 @@
 // TODO: Include packages needed for this application
 const fs = require('fs');
 const inquirer = require('inquirer');
-const generateMarkdown = require('./utils/generateMarkdown')
+// const generateMarkdown = require('generateMarkdown')
 
 // TODO: Create an array of questions for user input
 const questions = [
@@ -82,27 +82,65 @@ const questions = [
     },
 ]
 
-
-inquirer
-.prompt(questions)
-.then((response) => {
-    console.log(response);
-    fs.writeFile('generated_Readme.md', JSON.stringify(response), (err) => {
-        if (err === true) {
-            console.log('error');
-        }
-    })
+// Generartes the README layout
+function generateMarkdown(response) {
+    return `
+    # [${response.title}]
     
+    ## [Description]
+    ###${response.description}
+    
+    ## [Table of Contents]
+    ###  * [Installation](#instal)
+    ###  * [Usage](#usage)
+    ###  * [Contributors](#contributors)
+    ###  * [License](#license)
+    ###  * [Badges](#badges)
+    ###  * [Questions](#questions)
+  
+    ## [Installation]
+    ${response.install}
+  
+    ## [Usage]
+    ${response.usage}
+  
+    ## [Contributors]
+    ${response.contributors}
+  
+    ## [License]
+    ${response.license}
+  
+    ## [Badges]  
+    ${response.badges}
+  
+    ## [Questions]
+    Any questions please contact me via:
+    Github: https://github.com/${response.git}
+    OR
+    Email: ${response.email}
+    `;
 }
-);
+
+
 
 // TODO: Create a function to write README file
 function writeToFile() {
-      
- }
+    
+}
 
 // TODO: Create a function to initialize app
-function init() { }
+function init() {
+    inquirer.prompt(questions)
+        .then((response) => {
+            const pageContent = generateMarkdown(response);
+    
+            fs.writeFile('generated_Readme.md', pageContent, (err) => {
+                if (err === true) {
+                    console.log('error');
+                }
+            })
+        })
+};
 
 // Function call to initialize app
 init();
