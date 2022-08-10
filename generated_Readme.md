@@ -1,0 +1,1 @@
+{"title":"g","description":"g","install":"g","usage":"g","contributors":"gg","license":"The MIT License","git":"g","email":"gg"}

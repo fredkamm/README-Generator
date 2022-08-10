@@ -1,69 +1,105 @@
 // TODO: Include packages needed for this application
 const fs = require('fs');
-const inquirer = require('inquirer')
+const inquirer = require('inquirer');
+const generateMarkdown = require('./utils/generateMarkdown')
 
-// console.log(inquirer);
 // TODO: Create an array of questions for user input
 const questions = [
     {
-    type: 'input',
-    message: 'What is the title of your project?',
-    name: 'project',
+        type: 'input',
+        message: 'What is the title of your project?',
+        name: 'title',
+        validate: (value) => {
+            if (value) {
+                return true
+            } else {
+                return 'Title input is required'
+            }
+        },
     },
     {
-    type: 'input',
-    message: 'Give a description about your project.',
-    name: 'description',
+        type: 'input',
+        message: 'Give a description about your project.',
+        name: 'description',
+        validate: (value) => {
+            if (value) {
+                return true
+            } else {
+                return 'Title input is required'
+            }
+        },
     },
     {
-    type: 'input',
-    message: 'How to install your project?',
-    name: 'install',
+        type: 'input',
+        message: 'How to install your project?',
+        name: 'install',
     },
     {
-    type: 'input',
-    message: 'How do you use your project?',
-    name: 'usage',
+        type: 'input',
+        message: 'How do you use your project?',
+        name: 'usage',
     },
     {
-    type: 'list',
-    message: 'What license did you use?',
-    name: 'license',
-    choices: ['The MIT License', 'The GPL License', 'Apache License', 'N/A'],
+        type: 'input',
+        message: 'Any shout outs you would like to give that helped you complete this project?',
+        name: 'contributors',
     },
     {
-    type: 'input',
-    message: 'Enter in your GitHub username',
-    name: 'git',
+        type: 'list',
+        message: 'What license did you use?',
+        name: 'license',
+        choices: ['The MIT License', 'The GPL License', 'Apache License', 'N/A'],
     },
     {
-    type: 'input',
-    message: 'Enter in your email address',
-    name: 'email',
+        type: 'list',
+        message: 'What badges have you earned?',
+        name: 'badges',
+        choices: ['The MIT License', 'The GPL License', 'Apache License', 'N/A'],
     },
-]   
+    {
+        type: 'input',
+        message: 'Enter in your GitHub username',
+        name: 'git',
+        validate: (value) => {
+            if (value) {
+                return true
+            } else {
+                return 'Title input is required'
+            }
+        },
+    },
+    {
+        type: 'input',
+        message: 'Enter in your email address',
+        name: 'email',
+        validate: (value) => {
+            if (value) {
+                return true
+            } else {
+                return 'Title input is required'
+            }
+        },
+    },
+]
+
 
 inquirer
-    .prompt([
-     questions[0],
-     questions[1],
-     questions[2],
-     questions[3],
-     questions[4],
-     questions[5],
-     questions[6],
-    ])
-    .then((response) => {
-        console.log(response)
-        // fs.writeFile('log.md', JSON.stringify(response), (err) => {
-        //     if (err === true) {
-        //         console.log('error');
-        //     }
-        // })
-    }
-    );
+.prompt(questions)
+.then((response) => {
+    console.log(response);
+    fs.writeFile('generated_Readme.md', JSON.stringify(response), (err) => {
+        if (err === true) {
+            console.log('error');
+        }
+    })
+    
+}
+);
+
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) { }
+function writeToFile() {
+      
+ }
 
 // TODO: Create a function to initialize app
 function init() { }
