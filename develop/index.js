@@ -1,7 +1,7 @@
 // TODO: Include packages needed for this application
 const fs = require('fs');
 const inquirer = require('inquirer');
-// const generateMarkdown = require('generateMarkdown')
+const generateMarkdown = require('./utils/generateMarkdown.js');
 
 // TODO: Create an array of questions for user input
 const questions = [
@@ -81,46 +81,6 @@ const questions = [
         },
     },
 ]
-
-// Generartes the README layout
-function generateMarkdown(response) {
-    return `
-    # [${response.title}]
-    
-    ## [Description]
-    ###${response.description}
-    
-    ## [Table of Contents]
-    ###  * [Installation](#instal)
-    ###  * [Usage](#usage)
-    ###  * [Contributors](#contributors)
-    ###  * [License](#license)
-    ###  * [Badges](#badges)
-    ###  * [Questions](#questions)
-  
-    ## [Installation]
-    ${response.install}
-  
-    ## [Usage]
-    ${response.usage}
-  
-    ## [Contributors]
-    ${response.contributors}
-  
-    ## [License]
-    ${response.license}
-  
-    ## [Badges]  
-    ${response.badges}
-  
-    ## [Questions]
-    Any questions please contact me via:
-    Github: https://github.com/${response.git}
-    OR
-    Email: ${response.email}
-    `;
-}
-
 
 
 // TODO: Create a function to write README file
