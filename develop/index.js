@@ -40,21 +40,26 @@ const questions = [
         name: 'usage',
     },
     {
-        type: 'input',
-        message: 'Any shout outs you would like to give that helped you complete this project?',
-        name: 'contributors',
-    },
-    {
         type: 'list',
         message: 'What license did you use?',
         name: 'license',
-        choices: ['The MIT License', 'The GPL License', 'Apache License', 'N/A'],
+        choices: ['Apache License', 'The MIT License', 'The GPL License', 'N/A'],
     },
     {
         type: 'list',
         message: 'What badges have you earned?',
         name: 'badges',
-        choices: ['The MIT License', 'The GPL License', 'Apache License', 'N/A'],
+        choices: ['Apache License', 'The MIT License', 'The GPL License', 'N/A'],
+    },
+    {
+        type: 'input',
+        message: 'Any shout outs you would like to give that helped you complete this project?',
+        name: 'contributors',
+    },
+    {
+        type: 'input',
+        message: 'Tests?',
+        name: 'tests',
     },
     {
         type: 'input',
@@ -85,6 +90,7 @@ const questions = [
 
 // TODO: Create a function to write README file
 function writeToFile(pageContent) {
+    
     fs.writeFile('generated_Readme.md', pageContent, (err) => {
         if (err === true) {
             console.log('error');

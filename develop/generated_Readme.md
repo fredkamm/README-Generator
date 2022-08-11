@@ -1,9 +1,12 @@
 
-  # sdaf
+  # sadf
+
+  ## License: The MIT License  
+  ### 
   
   # Description
 
-  sdaf
+  sadf
   
   # Table of Contents
 
@@ -16,24 +19,24 @@
 
   # Installation
 
-  sdf
+  dsaf
 
   # Usage
 
-  sdf
+  dsaf
 
   # Contributors
 
   sdf
 
-  # License
+  # Tests
 
-  The MIT License
+  sdf
 
   # Questions
 
   ### Any questions please contact me via:
-  ### Github: https://github.com/dsf
+  ### Github: https://github.com/sdf
   ### OR
-  ### Email: dsfsdf
+  ### Email: sdf
 
