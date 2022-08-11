@@ -84,21 +84,23 @@ const questions = [
 
 
 // TODO: Create a function to write README file
-function writeToFile() {
-    
+function writeToFile(pageContent) {
+    fs.writeFile('generated_Readme.md', pageContent, (err) => {
+        if (err === true) {
+            console.log('error');
+        }
+    })
+
 }
 
 // TODO: Create a function to initialize app
 function init() {
     inquirer.prompt(questions)
         .then((response) => {
+            console.log(response)
+
             const pageContent = generateMarkdown(response);
-    
-            fs.writeFile('generated_Readme.md', pageContent, (err) => {
-                if (err === true) {
-                    console.log('error');
-                }
-            })
+            writeToFile(pageContent)
         })
 };
 
@@ -106,4 +108,4 @@ function init() {
 init();
 
 
-
+module.exports = questions;

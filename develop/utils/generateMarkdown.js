@@ -19,10 +19,12 @@ function generateMarkdown(response) {
   return `
   # ${response.title}
   
-  ## Description
-  ### ${response.description}
+  # Description
+
+  ${response.description}
   
-  ## Table of Contents
+  # Table of Contents
+
   ###  * [Installation](#instal)
   ###  * [Usage](#usage)
   ###  * [Contributors](#contributors)
@@ -30,22 +32,24 @@ function generateMarkdown(response) {
   ###  * [Badges](#badges)
   ###  * [Questions](#questions)
 
-  ## Installation
-  ### ${response.install}
+  # Installation
 
-  ## Usage
-  ### ${response.usage}
+  ${response.install}
 
-  ## Contributors
-  ### ${response.contributors}
+  # Usage
 
-  ## License
-  ### ${response.license}
+  ${response.usage}
 
-  ## Badges  
-  ### ${response.badges}
+  # Contributors
 
-  ## Questions
+  ${response.contributors}
+
+  # License
+
+  ${response.license}
+
+  # Questions
+
   ### Any questions please contact me via:
   ### Github: https://github.com/${response.git}
   ### OR

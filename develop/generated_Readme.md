@@ -1,10 +1,12 @@
 
-  # README_Generator
+  # sdaf
   
-  ## Description
-  ### This is a ReadMe Generator used by node js
+  # Description
+
+  sdaf
   
-  ## Table of Contents
+  # Table of Contents
+
   ###  * [Installation](#instal)
   ###  * [Usage](#usage)
   ###  * [Contributors](#contributors)
@@ -12,24 +14,26 @@
   ###  * [Badges](#badges)
   ###  * [Questions](#questions)
 
-  ## Installation
-  ### github
+  # Installation
 
-  ## Usage
-  ### node
+  sdf
 
-  ## Contributors
-  ### n/a
+  # Usage
 
-  ## License
-  ### N/A
+  sdf
 
-  ## Badges  
-  ### N/A
+  # Contributors
 
-  ## Questions
+  sdf
+
+  # License
+
+  The MIT License
+
+  # Questions
+
   ### Any questions please contact me via:
-  ### Github: https://github.com/fredkamm
+  ### Github: https://github.com/dsf
   ### OR
-  ### Email: fred.kamm95@gmail.com
+  ### Email: dsfsdf
 
