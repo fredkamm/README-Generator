@@ -33,23 +33,39 @@ const questions = [
         type: 'input',
         message: 'How to install your project?',
         name: 'install',
+        validate: (value) => {
+            if (value) {
+                return true
+            } else {
+                return 'Title input is required'
+            }
+        },
     },
     {
         type: 'input',
         message: 'How do you use your project?',
         name: 'usage',
+        validate: (value) => {
+            if (value) {
+                return true
+            } else {
+                return 'Title input is required'
+            }
+        },
     },
     {
         type: 'list',
-        message: 'What license did you use?',
         name: 'license',
-        choices: ['Apache License', 'The MIT License', 'The GPL License', 'N/A'],
-    },
-    {
-        type: 'list',
-        message: 'What badges have you earned?',
-        name: 'badges',
-        choices: ['Apache License', 'The MIT License', 'The GPL License', 'N/A'],
+        message: 'What license does your project use?',
+        choices: ['None', 'Apache 2.0', 'MIT', 'GNU GPL v3.0', 'Mozilla 2.0'],
+        validate: licenseInput = () => {
+            if (licenseInput) {
+                return true;
+            } else {
+                console.log('Please select one of the four options')
+                return false;
+                }
+        }
     },
     {
         type: 'input',
@@ -60,6 +76,13 @@ const questions = [
         type: 'input',
         message: 'Tests?',
         name: 'tests',
+        validate: (value) => {
+            if (value) {
+                return true
+            } else {
+                return 'Title input is required'
+            }
+        },
     },
     {
         type: 'input',
@@ -89,8 +112,9 @@ const questions = [
 
 
 // TODO: Create a function to write README file
-function writeToFile(pageContent) {
+function writeToFile(response) {
     
+    const pageContent = generateMarkdown(response);
     fs.writeFile('generated_Readme.md', pageContent, (err) => {
         if (err === true) {
             console.log('error');
@@ -106,12 +130,10 @@ function init() {
             console.log(response)
 
             const pageContent = generateMarkdown(response);
-            writeToFile(pageContent)
+            writeToFile(response)
         })
 };
 
 // Function call to initialize app
 init();
 
-
-module.exports = questions;
